@@ -1,7 +1,11 @@
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+set(Boost_NO_SYSTEM_PATHS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+set(BOOST_ALL_DYN_LINK OFF)
 
-message(STATUS "Qt6 directory: $ENV{QTDIR}")
-set(QT_BIN_DIR "$ENV{QTDIR}/bin")
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+find_package(Boost REQUIRED)
 
 if (WIN32)
     add_executable(${PROJECT_NAME} WIN32
@@ -13,4 +17,4 @@ else ()
     )
 endif ()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE qt)
+target_link_libraries(${PROJECT_NAME} PRIVATE qt boost)
