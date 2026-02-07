@@ -12,7 +12,7 @@ set(BOOST_SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/boost_${BOOST_VERSION_UNDERSCO
 # b2 stage (default) puts libs in <source>/stage/lib or stage/lib/<variant>/, headers stay in <source>
 set(BOOST_STAGE_DIR "${BOOST_SOURCE_DIR}/stage")
 set(BOOST_STAGE_LIB_DIR "${BOOST_SOURCE_DIR}/stage/lib")
-set($ENV{BOOSTROOT} ${BOOST_SOURCE_DIR})
+set(ENV{BOOSTROOT} ${BOOST_SOURCE_DIR})
 
 # If we already built Boost here (stage), use it directly and skip find_package/build
 if(EXISTS "${BOOST_SOURCE_DIR}/boost/version.hpp")
@@ -63,7 +63,7 @@ if(NOT Boost_FOUND)
                 WORKING_DIRECTORY ${BOOST_SOURCE_DIR}
         )
 
-        set(Boost_INCLUDE_DIRS "${BOOST_SOURCE_DIR}")
+        set(Boost_ROOT "${BOOST_SOURCE_DIR}")
         find_package(Boost 1.83 QUIET)
 else()
         message(STATUS "Boost found in the system.")

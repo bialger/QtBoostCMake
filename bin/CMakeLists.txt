@@ -4,6 +4,10 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_STATIC_RUNTIME ON)
 set(BOOST_ALL_DYN_LINK OFF)
 
+if (NOT Boost_ROOT AND EXISTS $ENV{BOOSTROOT})
+    set(Boost_ROOT $ENV{BOOSTROOT})
+endif()
+
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 find_package(Boost REQUIRED)
 
