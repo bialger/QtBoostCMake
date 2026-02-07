@@ -1,8 +1,11 @@
-# QtCMake
-A C++ project template with Qt6 and CMake that downloads and compiles Qt.
-The resulting app is an executable that can be run on a system without Qt.
+# QtBoostCMake
+
+A C++ project template with Qt6, Boost, Google Tests and CMake that downloads and compiles Qt and Boost.
+The resulting app is an executable that can be run on a system without Qt and Boost.
 
 The main Qt6 configuration is found in the [correspondent](lib/qt/CMakeLists.txt) CMakeLists.txt file.
+The main Boost configuration is found in the [correspondent](lib/boost/CMakeLists.txt) CMakeLists.txt file.
+The main Google Tests configuration is found in the [correspondent](tests/CMakeLists.txt) CMakeLists.txt file.
 
 > Note that statically compiled Qt6 weights more than 5 GB.
 > The good thing is that user does not need whole compiled Qt6 with this configuration.
