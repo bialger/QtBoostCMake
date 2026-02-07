@@ -58,6 +58,7 @@ if(NOT Boost_FOUND)
                 link=static
                 runtime-link=static
                 threading=multi
+                --layout=versioned
                 --build-type=complete
                 WORKING_DIRECTORY ${BOOST_SOURCE_DIR}
         )
