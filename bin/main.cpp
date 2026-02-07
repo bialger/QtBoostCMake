@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <boost/filesystem.hpp>
+
 #include <QApplication>
 #include <QDateTime>
 #include <QLCDNumber>
@@ -18,6 +20,9 @@ int main(int argc, char** argv) {
     std::cout << "No CLI arguments allowed.\n";
     return 0;
   }
+
+  // Boost.Filesystem (requires linking)
+  std::cout << "CWD: " << boost::filesystem::current_path().string() << "\n";
 
   QApplication a(argc, argv);
 
