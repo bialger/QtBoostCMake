@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
 
 project(
-        QtCMake
-        VERSION 1.1.0
-        DESCRIPTION "CMake project for easy Qt connection to other CMake projects"
+        QtBoostCMake
+        VERSION 1.0.0
+        DESCRIPTION "CMake project for easy Qt and Boost connection to other CMake projects"
         LANGUAGES CXX
 )
 
@@ -29,7 +29,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
     set(CMAKE_CXX_FLAGS_RELEASE "/O2")
 else ()
-    set(CMAKE_CXX_FLAGS_DEBUG "-g")
+    set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3")
     if (WIN32)
         set(CMAKE_CXX_STANDARD_LIBRARIES "-static-libgcc -static-libstdc++ -lwsock32 -lws2_32 ${CMAKE_CXX_STANDARD_LIBRARIES}")

@@ -16,13 +16,13 @@ static constexpr const char* kFormat = "hh:mm:ss";
 } // namespace
 
 int main(int argc, char** argv) {
+  // Boost.Filesystem (requires linking)
+  std::cout << "CWD: " << boost::filesystem::current_path().string() << "\n";
+
   if (argc > 1) {
     std::cout << "No CLI arguments allowed.\n";
     return 0;
   }
-
-  // Boost.Filesystem (requires linking)
-  std::cout << "CWD: " << boost::filesystem::current_path().string() << "\n";
 
   QApplication a(argc, argv);
 

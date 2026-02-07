@@ -45,33 +45,33 @@ jobs:
       - name: Build main target
         shell: bash
         run: |
-          cmake --build cmake-build-release --target QtCMake
+          cmake --build cmake-build-release --target QtBoostCMake
 
       - name: Run program
         shell: bash
         working-directory: ./cmake-build-release/bin
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-              ./QtCMake.exe --help
+              ./QtBoostCMake.exe --help
           else 
-              ./QtCMake --help
+              ./QtBoostCMake --help
           fi
       - name: Build tests
         shell: bash
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-              cmake --build ./cmake-build-release --target QtCMake_tests || echo "Built with errors"
+              cmake --build ./cmake-build-release --target QtBoostCMake_tests || echo "Built with errors"
           else
-              cmake --build ./cmake-build-release --target QtCMake_tests
+              cmake --build ./cmake-build-release --target QtBoostCMake_tests
           fi
       - name: Run tests
         shell: bash
         working-directory: ./cmake-build-release/tests
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-              ./QtCMake_tests.exe || echo "Tests failed" # Due to a specific MinGW-related Github Actions issue
+              ./QtBoostCMake_tests.exe || echo "Tests failed" # Due to a specific MinGW-related Github Actions issue
           else
-              ./QtCMake_tests
+              ./QtBoostCMake_tests
           fi
 
   style-check:
